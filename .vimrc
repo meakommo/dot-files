@@ -16,10 +16,12 @@ Plugin 'gmarik/Vundle.vim'
 " Utility
 Plugin 'scrooloose/nerdtree'
 Plugin 'Shougo/neocomplete.vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 " Theme / Interface
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'Yggdroot/indentLine'
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -60,11 +62,12 @@ set t_Co=256
 " endif
 
 let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme monokai
+"colorscheme monokai
 
 autocmd vimenter * NERDTree
 
-
+" Vim
+let g:indentLine_color_term = 239
 
 """""""""""""""""""""""""""""""""""""
 " Mappings configurationn
