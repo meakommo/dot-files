@@ -20,14 +20,19 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 #begin custom entries
-neofetch
+screenfetch
 
 #alias commands
 
 #navigation
 alias home="cd ~/"
 alias la="ls -liah"
-alias zvim="vim ~/.zshrc"
+alias zvim="nvim ~/.zshrc"
 alias Y="yaourt" 
 alias messenger="~/Documents/./caprine-2.8.0-x86_64.AppImage"
 alias passphrase="/home/meako/script/passe.sh"
+alias gitm="git commit - m"
+alias gitid="git config credential.helper store"
+alias radio="cvlc -q 'https://www.youtube.com/watch?v=OlDvC8v6o7k'"
+alias monstercat="streamlink 'https://www.twitch.tv/monstercat' 720p"
+alias vim="nvim"
