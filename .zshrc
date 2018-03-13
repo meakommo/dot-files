@@ -36,6 +36,6 @@ alias gitid="git config credential.helper store"
 alias radio="cvlc -q 'https://www.youtube.com/watch?v=OlDvC8v6o7k'"
 alias monstercat="streamlink 'https://www.twitch.tv/monstercat' 720p"
 alias vim="nvim"
-alias update="sudo apt update | lolcat"
-alias upgrade="sudo apt upgrade |lolcat"
+#alias update="sudo apt update | lolcat"
+#alias upgrade="sudo apt upgrade |lolcat"
 
