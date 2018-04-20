@@ -16,10 +16,10 @@ Plugin 'gmarik/Vundle.vim'
 " Utility
 Plugin 'scrooloose/nerdtree'
 Plugin 'Shougo/deoplete.nvim'
-
-
+Plugin 'vim-syntastic/syntastic'
 "Javascript
-Plugin 'vim-javascript'
+Plugin 'pangloss/vim-javascript'
+
 "Plugin 'vim-javascript-lib'
 
 " Theme / Interface
@@ -44,8 +44,8 @@ set backspace=indent,eol,start
 set number
 
 " Set Proper Tabs
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set smarttab
 set expandtab
 
@@ -54,7 +54,6 @@ set laststatus=2
 
 " Enable Elite mode, No ARRRROWWS!!!!
 let g:elite_mode=1
-
 " Enable highlighting of the current line
 set cursorline
 
@@ -69,13 +68,23 @@ let g:monokai_gui_italic = 1
 let g:deoplete#enable_at_startup = 1
 
 let g:python_host_prog = '/usr/bin/python2.7'
-let g:python3_host_prog = '/usr/bin/python3.5'
+let g:python3_host_prog = '/usr/bin/python3.6'
 
 autocmd vimenter * NERDTree
 
 " Vim
 let g:indentLine_color_term = 239
 let NERDTreeShowHidden=1
+" Syntasic
+let g:syntastic_javascript_checkers=['eslint']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 """""""""""""""""""""""""""""""""""""
 " Mappings configurationn
 """""""""""""""""""""""""""""""""""""
