@@ -24,7 +24,7 @@ ZSH_THEME="powerline"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+ DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -85,20 +85,21 @@ source $ZSH/oh-my-zsh.sh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 
-screenfetch
+screenfetch | lolcat
 
 #Coyote media server
 alias coyote="nvim ~/Documents/coyote-media-server/"
+alias cdcoyote="cd ~/Documents/coyote-media-server && la"
 #navigation
 alias home="clear && cd ~/ && la"
-alias la="clear && ls -liah | lolcat"
-alias zvim="nvim ~/.zshrc"
+alias la="clear && ls -liah"
 alias Y="yaourt" 
-alias cdcoyote="cd ~/Documents/coyote-media-server && la"
 #vim
 alias vim="nvim"
-alias vimconfig="nvim ~/.config/nvim/init.vim"
-#git
+alias vimconfig="nvim ~/.vimrc"
+alias zvim="nvim ~/.zshrc"
+
+#VS CODE
 alias code="code-oss"
 
 #git
@@ -109,3 +110,7 @@ alias radio="cvlc -q 'https://www.youtube.com/watch?v=OlDvC8v6o7k'"
 alias monstercat="streamlink 'https://www.twitch.tv/monstercat' 720p"
 #Code
 alias code="code-oss"
+#i3
+alias i3restart="i3-msg restart"
+#extend display for multi monitor
+alias extend="xrandr | grep 'HDMI1 connected' && xrandr --output eDP1 --auto --output HDMI1 --auto --left-of eDP1"
