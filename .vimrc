@@ -1,111 +1,80 @@
-set encoding=utf8
 
-"""" START Vundle Configuration 
-
-" Disable file type for vundle
+"let base16colorspace=256 " Access colors present in 256 colorspace
+set termguicolors
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" Utility
-Plugin 'scrooloose/nerdtree'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'vim-syntastic/syntastic'
-"Javascript
-Plugin 'pangloss/vim-javascript'
-
-"Plugin 'vim-javascript-lib'
-
-" Theme / Interface
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'preservim/nerdtree'
+"Plugin 'tanvirtin/monokai.nvim'
+Plugin 'MunifTanjim/nui.nvim'
+Plugin 'chriskempson/base16-vim'
+Plugin 'github/copilot.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Yggdroot/indentLine'
-Plugin 'crusoexia/vim-monokai'
 
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+" Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-"""" END Vundle Configuration 
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+" ##########################################################################
 
-"""""""""""""""""""""""""""""""""""""
-" Configuration Section
-"""""""""""""""""""""""""""""""""""""
-set nowrap
-
-" OSX stupid backspace fix
-set backspace=indent,eol,start
-
-" Show linenumbers
-set number
-
-" Set Proper Tabs
-set tabstop=2
-set shiftwidth=2
-set smarttab
-set expandtab
-
-" Always display the status line
-set laststatus=2
-
-" Wild menu, Vim native autocomplete
-set wildmenu
-
-"Enable showmatch. this means that when you cursor over a character vim will
-"highlight the closing tag
-set showmatch 
-
-" Enable highlighting of the current line
-set cursorline
-" search as characters are entered
-set incsearch
-
-"Highlight search matches
-set hlsearch
-
-"allow vim to fold code
-set foldenable
-
-" fold based on indent level
-set foldmethod=indent
-
-
-
-" Theme and Styling 
+set showmatch               " show matching
+set ignorecase              " case insensitive
+set hlsearch                " highlight search
+set incsearch               " incremental search
+set tabstop=4               " number of columns occupied by a tab
+set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
+set expandtab               " converts tabs to white space
+set shiftwidth=4            " width for autoindents
+set number                  " add line numbers
+set wildmode=longest,list   " get bash-like tab completions
+filetype plugin indent on   "allow auto-indenting depending on file type
+syntax on                   " syntax highlighting
+set clipboard=unnamedplus   " using system clipboard
+filetype plugin on
+set ttyfast                 " Speed up scrolling in Vim
+"
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+ " Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
 syntax on
-colorscheme monokai
-set termguicolors
-let g:monokai_term_italic = 1
-let g:monokai_gui_italic = 1
-
-"deoplete
-let g:deoplete#enable_at_startup = 1
-
-let g:python_host_prog = '/usr/bin/python2.7'
-let g:python3_host_prog = '/usr/bin/python3.7'
-
-autocmd vimenter * NERDTree
-
-" Vim
-let g:indentLine_color_term = 239
-let NERDTreeShowHidden=1
-" Syntasic
-let g:syntastic_javascript_checkers=['eslint']
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-"""""""""""""""""""""""""""""""""""""
-" Mappings configurationn
-"""""""""""""""""""""""""""""""""""""
-map <C-n> :NERDTreeToggle<CR>
-map <C-m> :TagbarToggle<CR>
-
+colorscheme base16-monokai
