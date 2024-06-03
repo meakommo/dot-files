@@ -28,6 +28,18 @@ install_software() {
     # Install neovim
     sudo apt-get install -y neovim
 
+    # Install Latest Python 3
+    sudo apt-get install -y python3
+
+    # Install Python 3 pip
+    sudo apt-get install -y python3-pip
+    
+    # Install Vundle plugin manager for Vim
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+    # Install mlocate
+    sudo apt-get install -y mlocate
+    
     # Add additional software installations here
     # For example, to install software_name, add the following line:
     # sudo apt-get install -y software_name
